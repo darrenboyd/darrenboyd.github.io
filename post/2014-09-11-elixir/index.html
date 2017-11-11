@@ -4,22 +4,107 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>404 Page not found | Darren Boyd</title>
+<title>Elixir | Darren Boyd</title>
 
 <link rel="stylesheet" href="https://darrenboyd.github.io/css/style.css"/><link rel='stylesheet' href='/css/syntax.css'></head>
 <body class="site">
 
-<section class="hero is-fullheight">
-  <div class="hero-body">
-    <div class="container text-center">
-      <h1 class="title notfound">404: Page not found</h1>
-      <img src="/images/404.jpg" alt="Constructocat by https://github.com/jasoncostello" style="width: 400px;"/>
-      <p>
-        <a class="button" href="https://darrenboyd.github.io">Back to the Home Page</a>       
-      </p>
-    </div>
+<div class="wrapper-masthead">
+  <div class="container">
+    <header class="masthead clearfix">
+      <a href="/" class="site-avatar"><img src="https://avatars3.githubusercontent.com/u/6103?v=2&amp;s=460"></a>
+
+      <div class="site-info">
+        <h1 class="site-name"><a href="/">Darren Boyd</a></h1>
+        <p class="site-description">Developer from San Francisco</p>
+      </div>
+
+      <nav>
+        <a href="/">Blog</a>
+        <a href="/about/">About</a>
+      </nav>
+    </header>
   </div>
-</section>
+</div>
+<div id="main" role="main" class="container">
+  <article class="post">
+    <h1 class="title">Elixir</h1>
+    <div class="entry">
+        
+
+<p>With the elixir-lang 1.0.0 release
+<a href="https://github.com/elixir-lang/elixir/commit/52ff7e96867c027745d29f5d3feb77f546f22c4f">approaching</a>,
+I thought I&rsquo;d jump in and get better acquainted with the language.
+First, a huge thanks to Jose and everyone involved with elixir.  As
+much for creating a great new language, but also for giving me more
+motivation to read my <em>Programming Erlang</em> book.</p>
+
+<p>Here are a few first things in learning the language&hellip;</p>
+
+<h3 id="interactive-elixir-iex">Interactive Elixir: iex</h3>
+
+<p>Having an interactive mode is incredible.  I&rsquo;ve so use to irb (interactive ruby)
+for so long, I was thrilled to see this available for elixir.</p>
+
+<p><img src="iex.png" alt="iex in the terminal" /></p>
+
+<p>The first struggle was trying to quit iex.  I was so used to
+<code>ctrl-d</code>
+working, I was quite surprised when it didn&rsquo;t work.  Instead, to quit
+iex it&rsquo;s <code>ctrl-g q &lt;enter&gt;</code>.  I&rsquo;m guessing
+there&rsquo;s more to that than meets the eye.</p>
+
+<h3 id="help-within-iex">help within iex</h3>
+
+<p><strong>This is awesome</strong>, the language documentation is available
+within iex.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">iex(10)&gt; h is_boolean/1
+
+    def is_boolean(term)
+
+  Returns true if term is either the atom true or the atom false (i.e. a
+  boolean); otherwise returns false.
+
+  Allowed in guard tests. Inlined by the compiler.</code></pre></div>
+
+<p>The <code>h is_boolean/1</code> means: &lsquo;help on function is_boolean
+with arity 1.</p>
+
+<p>The help has tab completion too&hellip;</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">    iex(27)&gt; h is_&lt;tab&gt;
+    is_atom/1         is_binary/1       is_bitstring/1    is_boolean/1
+    is_float/1        is_function/1     is_function/2     is_integer/1
+    is_list/1         is_map/1          is_number/1       is_pid/1
+    is_port/1         is_reference/1    is_tuple/1
+    iex(27)&gt; h is_&lt;cursor&gt;</code></pre></div>
+
+<p>The arity isn&rsquo;t required for getting help.  And, when not given for something
+that has multiple signatures (or whatever elixir calls them), will show
+all matches.  E.g., <code>h is_function</code> will display help for both
+the arity 1 and arity 2 versions.</p>
+
+<h3 id="still-learning">Still Learning</h3>
+
+<p>I&rsquo;m just getting started, but it&rsquo;s fun to learn a language that gives you
+approachable tools, like iex, to play with.  Next up is to figure out why this
+works, and why I should know why it works&hellip;</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">|&gt;</span> <span class="p"></span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="ni">&amp;1</span> <span class="o">*</span> <span class="ni">&amp;1</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">iex</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span><span class="o">&gt;</span></code></pre></div>
+
+<p>Check out <a href="http://elixir-lang.org/">Elixir</a>.  If you want high
+level information, check out the <a href="http://www.confreaks.com/events/elixirconf2014">
+Elixir Conf videos</a>.</p>
+
+    </div>
+    <div class="date">
+        September 11, 2014
+    </div>
+  </article>
+</div>
 <section class="section">
   <div class="wrapper-footer">
     <div class="container">
@@ -83,3 +168,4 @@ ga('send', 'pageview');
 
 </body>
 </html>
+

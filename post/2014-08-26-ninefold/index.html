@@ -4,22 +4,73 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>404 Page not found | Darren Boyd</title>
+<title>Ninefold | Darren Boyd</title>
 
 <link rel="stylesheet" href="https://darrenboyd.github.io/css/style.css"/><link rel='stylesheet' href='/css/syntax.css'></head>
 <body class="site">
 
-<section class="hero is-fullheight">
-  <div class="hero-body">
-    <div class="container text-center">
-      <h1 class="title notfound">404: Page not found</h1>
-      <img src="/images/404.jpg" alt="Constructocat by https://github.com/jasoncostello" style="width: 400px;"/>
-      <p>
-        <a class="button" href="https://darrenboyd.github.io">Back to the Home Page</a>       
-      </p>
-    </div>
+<div class="wrapper-masthead">
+  <div class="container">
+    <header class="masthead clearfix">
+      <a href="/" class="site-avatar"><img src="https://avatars3.githubusercontent.com/u/6103?v=2&amp;s=460"></a>
+
+      <div class="site-info">
+        <h1 class="site-name"><a href="/">Darren Boyd</a></h1>
+        <p class="site-description">Developer from San Francisco</p>
+      </div>
+
+      <nav>
+        <a href="/">Blog</a>
+        <a href="/about/">About</a>
+      </nav>
+    </header>
   </div>
-</section>
+</div>
+<div id="main" role="main" class="container">
+  <article class="post">
+    <h1 class="title">Ninefold</h1>
+    <div class="entry">
+        <p>I decided to spend some time playing around with the hosting service
+from <a href="https://ninefold.com/" target="_blank">Ninefold</a>.  Their offering looks great,
+with excellent pricing. They seem as simple to use as Heroku, but you
+can still get to control an actual <em>server</em>.</p>
+
+<p>Signup is easy.  They give you 30 days before requiring billing
+information.  After the 30 days, you still get the first $50 waived.
+It&rsquo;s a very frictionless activation process, and well worth the effort
+to get a &lsquo;machine in the cloud&rsquo;.</p>
+
+<p>Launching a machine was super easy.  I managed to get a virtual machine
+running with almost no typing (I had to name the machine).  I&rsquo;m
+impressed by the simplicity of it.  Eventually, I got to a page showing
+progress&hellip;</p>
+
+<p><img src="provision-simple-machine.png" alt="provisioning progress" /></p>
+
+<p>The yellow highlight is mine.  I wanted to call-out the monthly price
+of the server, of which the first $50 a month is waived.  I.e., it&rsquo;s free.</p>
+
+<p>After the provisioning was complete I got an email from ninefold
+with a password for the machine.</p>
+
+<p><img src="emailed-password.png" alt="provisioning progress" /></p>
+
+<p>My first reaction to seeing a password in an email was to cry
+out in pain.  Admittedly, this is a very simple way to provide
+initial credentials, and I was immediately able to change it. I
+also setup SSH keys to avoid typing a password at all.</p>
+
+<p>With very little effort, and no real cost, I now have a little virtual
+machine running in the cloud.  Ninefold seems to give the simplicity
+of Heroku, but you get much more control of deployed resources. It&rsquo;s
+definitely worth a try if you are interested.</p>
+
+    </div>
+    <div class="date">
+        August 26, 2014
+    </div>
+  </article>
+</div>
 <section class="section">
   <div class="wrapper-footer">
     <div class="container">
@@ -83,3 +134,4 @@ ga('send', 'pageview');
 
 </body>
 </html>
+

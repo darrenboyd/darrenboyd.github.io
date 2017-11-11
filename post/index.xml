@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Darren Boyd</title>
+    <link>https://darrenboyd.github.io/post/</link>
+    <description>Recent content in Posts on Darren Boyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/darrenboyd&#34;&gt;Darren Boyd&lt;/a&gt; 2017</copyright>
+    <lastBuildDate>Tue, 16 Sep 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://darrenboyd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Next Opportunity</title>
+      <link>https://darrenboyd.github.io/post/2014-09-16-the-next-opportunity/</link>
+      <pubDate>Tue, 16 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-09-16-the-next-opportunity/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;EDIT&lt;/strong&gt;:
+I&amp;rsquo;m not looking. This post stays here for posterity.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m looking for my next opportunity.  Ideally, the company is in San
+Francisco.  I&amp;rsquo;m open to remote work, but I&amp;rsquo;d much rather participate with a
+team directly.  Here are some thoughts on what this next role
+looks like.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Moving On</title>
+      <link>https://darrenboyd.github.io/post/2014-09-15-moving-on-from-blujack/</link>
+      <pubDate>Mon, 15 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-09-15-moving-on-from-blujack/</guid>
+      <description>Eighteen months after I began working on Blujack I find myself in the unfortunate position of having to move on. It goes without saying that things didn&amp;rsquo;t go according to plan. Bootstrapping a startup requires a significant amount of personal risk. That risk has become too much for me to bear. As I now meet this fate it is crucial to learn as much as possible from the experience and move on to something new.</description>
+    </item>
+    
+    <item>
+      <title>Elixir</title>
+      <link>https://darrenboyd.github.io/post/2014-09-11-elixir/</link>
+      <pubDate>Thu, 11 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-09-11-elixir/</guid>
+      <description>With the elixir-lang 1.0.0 release approaching, I thought I&amp;rsquo;d jump in and get better acquainted with the language. First, a huge thanks to Jose and everyone involved with elixir. As much for creating a great new language, but also for giving me more motivation to read my Programming Erlang book.
+Here are a few first things in learning the language&amp;hellip;
+Interactive Elixir: iex Having an interactive mode is incredible. I&amp;rsquo;ve so use to irb (interactive ruby) for so long, I was thrilled to see this available for elixir.</description>
+    </item>
+    
+    <item>
+      <title>The Rails Stack</title>
+      <link>https://darrenboyd.github.io/post/2014-09-03-the-rails-stack/</link>
+      <pubDate>Wed, 03 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-09-03-the-rails-stack/</guid>
+      <description>&lt;p&gt;This is a quick overview of what the Rails stack looks like
+in a &lt;em&gt;typical&lt;/em&gt; production environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ninefold</title>
+      <link>https://darrenboyd.github.io/post/2014-08-26-ninefold/</link>
+      <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-08-26-ninefold/</guid>
+      <description>I decided to spend some time playing around with the hosting service from Ninefold. Their offering looks great, with excellent pricing. They seem as simple to use as Heroku, but you can still get to control an actual server.
+Signup is easy. They give you 30 days before requiring billing information. After the 30 days, you still get the first $50 waived. It&amp;rsquo;s a very frictionless activation process, and well worth the effort to get a &amp;lsquo;machine in the cloud&amp;rsquo;.</description>
+    </item>
+    
+    <item>
+      <title>Hello, is this thing on?</title>
+      <link>https://darrenboyd.github.io/post/2014-08-10-hello-is-this-thing-on/</link>
+      <pubDate>Sun, 10 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-08-10-hello-is-this-thing-on/</guid>
+      <description>I&amp;rsquo;m trying this blogging thing out again. I heard it&amp;rsquo;s popular. That&amp;rsquo;s assuming I can find a way to write something compelling. I believe that means I need to practice at it :).
+Props to contributors of Jekyll as well as Jekyll Now.
+Props to contributors of Hugo and the Kiss theme.</description>
+    </item>
+    
+  </channel>
+</rss>

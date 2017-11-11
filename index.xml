@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Darren Boyd</title>
+    <link>https://darrenboyd.github.io/</link>
+    <description>Recent content on Darren Boyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/darrenboyd&#34;&gt;Darren Boyd&lt;/a&gt; 2017</copyright>
+    <lastBuildDate>Mon, 06 Oct 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://darrenboyd.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Résumé</title>
+      <link>https://darrenboyd.github.io/resume/resume-2014-10-06/</link>
+      <pubDate>Mon, 06 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/resume/resume-2014-10-06/</guid>
+      <description>Résumé of Darren Boyd  1026 Page St.
+San Francisco, CA 94117
+Mobile: (310) 869-3109
+darren.boyd@gmail.com
+darrenboyd.github.io   Experience Realgravity Computer Systems Analyst  San Francisco, CA March 2011 – July 2013    Developed a zero-downtime development and deployment process for Realgravity&#39;s video embed service, ensuring maximum availability with near-continuous deployment. Built out ElasticSearch service for video meta-data, supporting user-defined access control. Built out distributed workflow based video uploading, transcoding and distribution system.</description>
+    </item>
+    
+    <item>
+      <title>The Next Opportunity</title>
+      <link>https://darrenboyd.github.io/post/2014-09-16-the-next-opportunity/</link>
+      <pubDate>Tue, 16 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-09-16-the-next-opportunity/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;EDIT&lt;/strong&gt;:
+I&amp;rsquo;m not looking. This post stays here for posterity.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m looking for my next opportunity.  Ideally, the company is in San
+Francisco.  I&amp;rsquo;m open to remote work, but I&amp;rsquo;d much rather participate with a
+team directly.  Here are some thoughts on what this next role
+looks like.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Moving On</title>
+      <link>https://darrenboyd.github.io/post/2014-09-15-moving-on-from-blujack/</link>
+      <pubDate>Mon, 15 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-09-15-moving-on-from-blujack/</guid>
+      <description>Eighteen months after I began working on Blujack I find myself in the unfortunate position of having to move on. It goes without saying that things didn&amp;rsquo;t go according to plan. Bootstrapping a startup requires a significant amount of personal risk. That risk has become too much for me to bear. As I now meet this fate it is crucial to learn as much as possible from the experience and move on to something new.</description>
+    </item>
+    
+    <item>
+      <title>Résumé</title>
+      <link>https://darrenboyd.github.io/resume/resume/</link>
+      <pubDate>Mon, 15 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/resume/resume/</guid>
+      <description>Résumé of Darren Boyd  1026 Page St.
+San Francisco, CA 94117
+Mobile: (310) 869-3109
+darren.boyd@gmail.com
+darrenboyd.github.io   Experience Blujack Technical Co-Founder  San Francisco, CA July 2013 – present    Co-founded Blujack; responsible for the technical obligations of the blujack group travel management product. Built out Blujack&#39;s product with Ruby on Rails. Managed a small team of developers and helped develop mobile applications using Cordova, shipping on Android and iOS.</description>
+    </item>
+    
+    <item>
+      <title>Elixir</title>
+      <link>https://darrenboyd.github.io/post/2014-09-11-elixir/</link>
+      <pubDate>Thu, 11 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-09-11-elixir/</guid>
+      <description>With the elixir-lang 1.0.0 release approaching, I thought I&amp;rsquo;d jump in and get better acquainted with the language. First, a huge thanks to Jose and everyone involved with elixir. As much for creating a great new language, but also for giving me more motivation to read my Programming Erlang book.
+Here are a few first things in learning the language&amp;hellip;
+Interactive Elixir: iex Having an interactive mode is incredible. I&amp;rsquo;ve so use to irb (interactive ruby) for so long, I was thrilled to see this available for elixir.</description>
+    </item>
+    
+    <item>
+      <title>The Rails Stack</title>
+      <link>https://darrenboyd.github.io/post/2014-09-03-the-rails-stack/</link>
+      <pubDate>Wed, 03 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-09-03-the-rails-stack/</guid>
+      <description>&lt;p&gt;This is a quick overview of what the Rails stack looks like
+in a &lt;em&gt;typical&lt;/em&gt; production environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ninefold</title>
+      <link>https://darrenboyd.github.io/post/2014-08-26-ninefold/</link>
+      <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-08-26-ninefold/</guid>
+      <description>I decided to spend some time playing around with the hosting service from Ninefold. Their offering looks great, with excellent pricing. They seem as simple to use as Heroku, but you can still get to control an actual server.
+Signup is easy. They give you 30 days before requiring billing information. After the 30 days, you still get the first $50 waived. It&amp;rsquo;s a very frictionless activation process, and well worth the effort to get a &amp;lsquo;machine in the cloud&amp;rsquo;.</description>
+    </item>
+    
+    <item>
+      <title>Hello, is this thing on?</title>
+      <link>https://darrenboyd.github.io/post/2014-08-10-hello-is-this-thing-on/</link>
+      <pubDate>Sun, 10 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/post/2014-08-10-hello-is-this-thing-on/</guid>
+      <description>I&amp;rsquo;m trying this blogging thing out again. I heard it&amp;rsquo;s popular. That&amp;rsquo;s assuming I can find a way to write something compelling. I believe that means I need to practice at it :).
+Props to contributors of Jekyll as well as Jekyll Now.
+Props to contributors of Hugo and the Kiss theme.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://darrenboyd.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/about/</guid>
+      <description>This page is some personal thoughts. Details about about my career on can be found on my work page. I&amp;rsquo;m a software developer, gamer, guitar player, husband, and genuinely nice guy 😁.
+Work is Play  My career is in software development. My hobbies, for the most part have looked very similar to my day job. Not surprising given the programming obsession took hold at age twelve. My Commodore VIC-20 attached to an old black-and-white television and I could not be parted.</description>
+    </item>
+    
+    <item>
+      <title>My Work</title>
+      <link>https://darrenboyd.github.io/my-work/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/my-work/</guid>
+      <description>I&amp;rsquo;m one of those lucky people who discovered early on in life that I could make a career doing what I love &amp;dash; developing software. With a few exceptions, my work has focused on building online applications. Below are a few notable highlights and accomplishments.
+The Early Years  I was fortunate enough to work for my first startup while in college. Western Computer Link was an Internet Service Provider during the mid-90s growth spurt of the Internet.</description>
+    </item>
+    
+  </channel>
+</rss>
