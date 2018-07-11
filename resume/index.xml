@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/darrenboyd&#34;&gt;Darren Boyd&lt;/a&gt; 2017</copyright>
-    <lastBuildDate>Mon, 06 Oct 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://darrenboyd.github.io/resume/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Résumé</title>
+      <link>https://darrenboyd.github.io/resume/resume-2018-07-10/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://darrenboyd.github.io/resume/resume-2018-07-10/</guid>
+      <description>Résumé of Darren Boyd  1026 Page St.
+San Francisco, CA 94117
+Mobile: (310) 869-3109
+darren.boyd@gmail.com
+darrenboyd.github.io   Experience Lendeavor VP Engineering  San Francisco, CA January 2015 – present    Led and executed on initial web application development in support of Lendeavor&#39;s business. Helped lead product management activities to define and prioritize engineering work. Managed development, deployment and operations of the Lendeavor online-application. Built out the product to support Lendeavor&#39;s initial business as a lending marketplace.</description>
+    </item>
     
     <item>
       <title>Résumé</title>
@@ -27,10 +40,10 @@ darrenboyd.github.io   Experience Realgravity Computer Systems Analyst  San Fran
     
     <item>
       <title>Résumé</title>
-      <link>https://darrenboyd.github.io/resume/resume/</link>
+      <link>https://darrenboyd.github.io/resume/resume-2014-09-15/</link>
       <pubDate>Mon, 15 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://darrenboyd.github.io/resume/resume/</guid>
+      <guid>https://darrenboyd.github.io/resume/resume-2014-09-15/</guid>
       <description>Résumé of Darren Boyd  1026 Page St.
 San Francisco, CA 94117
 Mobile: (310) 869-3109

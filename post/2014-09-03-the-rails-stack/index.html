@@ -81,8 +81,8 @@ controlled.</p>
 let the environment override anything.  Here&rsquo;s an example of what the
 <code>config/puma/production.rb</code> file might look like.</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">workers</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_WORKERS&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o"></span><span class="p">)</span>
-<span class="n">threads</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_THREADS_MIN&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o"></span><span class="p">),</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_THREADS_MAX&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="o"></span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">workers</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_WORKERS&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">threads</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_THREADS_MIN&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_THREADS_MAX&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span></code></pre></div>
 
 <p>More detail information about configuring Puma can be found in the
 project&rsquo;s <a href="https://github.com/puma/puma" target="_blank">README</a>.</p>
@@ -257,12 +257,12 @@ provided with a <code>URL</code>, making it a single entry.  E.g.,</p>
 </span><span class="w">
 </span><span class="w"></span><span class="c">## Logging</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>Application<span class="w"> </span>logs<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>treated<span class="w"> </span>as<span class="w"> </span>an<span class="w"> </span>event<span class="w"> </span>stream*.<span class="w"> </span>Your<span class="w"> </span>production<span class="w">
+</span><span class="w"></span>Application<span class="w"> </span>logs<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>treated<span class="w"> </span>as<span class="w"> </span>an<span class="w"> </span>event<span class="w"> </span>stream<span class="cp">*.</span><span class="w"> </span>Your<span class="w"> </span>production<span class="w">
 </span><span class="w"></span>application<span class="w"> </span>server<span class="w"> </span>logs<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>sent<span class="w"> </span>to<span class="w"> </span>that<span class="w"> </span>event<span class="w"> </span>stream<span class="p">,</span><span class="w"> </span>along<span class="w"> </span>with<span class="w">
 </span><span class="w"></span>any<span class="w"> </span>other<span class="w"> </span>data.<span class="w"> </span>This<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>done<span class="w"> </span>through<span class="w"> </span>system<span class="w"> </span>level<span class="w"> </span>things<span class="w"> </span>like<span class="w"> </span>syslog<span class="w">
 </span><span class="w"></span>or<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>third-party<span class="w"> </span>provider<span class="w"> </span>(e.g.<span class="p">,</span><span class="w"> </span><span class="p">[</span>Papertrail<span class="p">]</span>(https<span class="p">:</span>//papertrailapp.com/)).<span class="w">
 </span><span class="w">
-</span><span class="w">  </span>*see<span class="w"> </span><span class="p">[</span>The<span class="w"> </span>Twelve-Factor<span class="w"> </span>App<span class="p">]</span>(http<span class="p">:</span>//12factor.net/)<span class="w">
+</span><span class="w">  </span><span class="cp">*see</span><span class="w"> </span><span class="p">[</span>The<span class="w"> </span>Twelve-Factor<span class="w"> </span>App<span class="p">]</span>(http<span class="p">:</span>//12factor.net/)<span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">## Wrap-up</span><span class="w">
 </span><span class="w">
