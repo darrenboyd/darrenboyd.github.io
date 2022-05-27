@@ -1,81 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://darrenboyd.github.io/resume/resume-2018-07-10/</loc>
-    <lastmod>2018-07-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://darrenboyd.github.io/resume/resume-2014-10-06/</loc>
-    <lastmod>2014-10-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://darrenboyd.github.io/post/2014-09-16-the-next-opportunity/</loc>
-    <lastmod>2014-09-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://darrenboyd.github.io/post/2014-09-15-moving-on-from-blujack/</loc>
-    <lastmod>2014-09-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://darrenboyd.github.io/resume/resume-2014-09-15/</loc>
-    <lastmod>2014-09-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://darrenboyd.github.io/post/2014-09-11-elixir/</loc>
-    <lastmod>2014-09-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://darrenboyd.github.io/post/2014-09-03-the-rails-stack/</loc>
-    <lastmod>2014-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://darrenboyd.github.io/post/2014-08-26-ninefold/</loc>
-    <lastmod>2014-08-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://darrenboyd.github.io/post/2014-08-10-hello-is-this-thing-on/</loc>
-    <lastmod>2014-08-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://darrenboyd.github.io/about/</loc>
-  </url>
-  
   <url>
     <loc>https://darrenboyd.github.io/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://darrenboyd.github.io/resume/resume-2022-05-17/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://darrenboyd.github.io/resume/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://darrenboyd.github.io/resume/resume-2018-07-10/</loc>
     <lastmod>2018-07-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://darrenboyd.github.io/my-work/</loc>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://darrenboyd.github.io/resume/resume-2014-10-06/</loc>
+    <lastmod>2014-10-06T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://darrenboyd.github.io/post/</loc>
     <lastmod>2014-09-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://darrenboyd.github.io/resume/</loc>
-    <lastmod>2018-07-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://darrenboyd.github.io/post/2014-09-16-the-next-opportunity/</loc>
+    <lastmod>2014-09-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://darrenboyd.github.io/post/2014-09-15-moving-on-from-blujack/</loc>
+    <lastmod>2014-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://darrenboyd.github.io/resume/resume-2014-09-15/</loc>
+    <lastmod>2014-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://darrenboyd.github.io/post/2014-09-11-elixir/</loc>
+    <lastmod>2014-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://darrenboyd.github.io/post/2014-09-03-the-rails-stack/</loc>
+    <lastmod>2014-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://darrenboyd.github.io/post/2014-08-26-ninefold/</loc>
+    <lastmod>2014-08-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://darrenboyd.github.io/post/2014-08-10-hello-is-this-thing-on/</loc>
+    <lastmod>2014-08-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://darrenboyd.github.io/about/</loc>
+  </url><url>
+    <loc>https://darrenboyd.github.io/my-work/</loc>
+  </url><url>
     <loc>https://darrenboyd.github.io/tags/</loc>
-    <priority>0</priority>
   </url>
-  
 </urlset>

@@ -30,74 +30,56 @@
   <article class="post">
     <h1 class="title">Elixir</h1>
     <div class="entry">
-        
-
-<p>With the elixir-lang 1.0.0 release
-<a href="https://github.com/elixir-lang/elixir/commit/52ff7e96867c027745d29f5d3feb77f546f22c4f">approaching</a>,
+        <p>With the elixir-lang 1.0.0 release
+<!-- raw HTML omitted -->approaching<!-- raw HTML omitted -->,
 I thought I&rsquo;d jump in and get better acquainted with the language.
 First, a huge thanks to Jose and everyone involved with elixir.  As
 much for creating a great new language, but also for giving me more
-motivation to read my <em>Programming Erlang</em> book.</p>
-
+motivation to read my <!-- raw HTML omitted -->Programming Erlang<!-- raw HTML omitted --> book.</p>
 <p>Here are a few first things in learning the language&hellip;</p>
-
 <h3 id="interactive-elixir-iex">Interactive Elixir: iex</h3>
-
 <p>Having an interactive mode is incredible.  I&rsquo;ve so use to irb (interactive ruby)
 for so long, I was thrilled to see this available for elixir.</p>
-
-<p><img src="iex.png" alt="iex in the terminal" /></p>
-
+<p><img src="iex.png" alt="iex in the terminal"></p>
 <p>The first struggle was trying to quit iex.  I was so used to
-<code>ctrl-d</code>
+<!-- raw HTML omitted -->ctrl-d<!-- raw HTML omitted -->
 working, I was quite surprised when it didn&rsquo;t work.  Instead, to quit
-iex it&rsquo;s <code>ctrl-g q &lt;enter&gt;</code>.  I&rsquo;m guessing
+iex it&rsquo;s <!-- raw HTML omitted -->ctrl-g q &lt;enter&gt;<!-- raw HTML omitted -->.  I&rsquo;m guessing
 there&rsquo;s more to that than meets the eye.</p>
-
 <h3 id="help-within-iex">help within iex</h3>
-
-<p><strong>This is awesome</strong>, the language documentation is available
+<p><!-- raw HTML omitted -->This is awesome<!-- raw HTML omitted -->, the language documentation is available
 within iex.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">iex(10)&gt; h is_boolean/1
-
-    def is_boolean(term)
-
-  Returns true if term is either the atom true or the atom false (i.e. a
-  boolean); otherwise returns false.
-
-  Allowed in guard tests. Inlined by the compiler.</code></pre></div>
-
-<p>The <code>h is_boolean/1</code> means: &lsquo;help on function is_boolean
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">iex(10)&gt; h is_boolean/1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    def is_boolean(term)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Returns true if term is either the atom true or the atom false (i.e. a
+</span></span><span class="line"><span class="cl">  boolean); otherwise returns false.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Allowed in guard tests. Inlined by the compiler.</span></span></code></pre></div>
+<p>The <!-- raw HTML omitted -->h is_boolean/1<!-- raw HTML omitted --> means: &lsquo;help on function is_boolean
 with arity 1.</p>
-
 <p>The help has tab completion too&hellip;</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">    iex(27)&gt; h is_&lt;tab&gt;
-    is_atom/1         is_binary/1       is_bitstring/1    is_boolean/1
-    is_float/1        is_function/1     is_function/2     is_integer/1
-    is_list/1         is_map/1          is_number/1       is_pid/1
-    is_port/1         is_reference/1    is_tuple/1
-    iex(27)&gt; h is_&lt;cursor&gt;</code></pre></div>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">    iex(27)&gt; h is_&lt;tab&gt;
+</span></span><span class="line"><span class="cl">    is_atom/1         is_binary/1       is_bitstring/1    is_boolean/1
+</span></span><span class="line"><span class="cl">    is_float/1        is_function/1     is_function/2     is_integer/1
+</span></span><span class="line"><span class="cl">    is_list/1         is_map/1          is_number/1       is_pid/1
+</span></span><span class="line"><span class="cl">    is_port/1         is_reference/1    is_tuple/1
+</span></span><span class="line"><span class="cl">    iex(27)&gt; h is_&lt;cursor&gt;</span></span></code></pre></div>
 <p>The arity isn&rsquo;t required for getting help.  And, when not given for something
 that has multiple signatures (or whatever elixir calls them), will show
-all matches.  E.g., <code>h is_function</code> will display help for both
+all matches.  E.g., <!-- raw HTML omitted -->h is_function<!-- raw HTML omitted --> will display help for both
 the arity 1 and arity 2 versions.</p>
-
 <h3 id="still-learning">Still Learning</h3>
-
 <p>I&rsquo;m just getting started, but it&rsquo;s fun to learn a language that gives you
 approachable tools, like iex, to play with.  Next up is to figure out why this
 works, and why I should know why it works&hellip;</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="ni">&amp;1</span> <span class="o">*</span> <span class="ni">&amp;1</span><span class="p">))</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-<span class="n">iex</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span><span class="o">&gt;</span></code></pre></div>
-
-<p>Check out <a href="http://elixir-lang.org/">Elixir</a>.  If you want high
-level information, check out the <a href="http://www.confreaks.com/events/elixirconf2014">
-Elixir Conf videos</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elixir" data-lang="elixir"><span class="line"><span class="cl"><span class="n">iex</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="ni">&amp;1</span> <span class="o">*</span> <span class="ni">&amp;1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">iex</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span><span class="o">&gt;</span></span></span></code></pre></div>
+<p>Check out <!-- raw HTML omitted -->Elixir<!-- raw HTML omitted -->.  If you want high
+level information, check out the <!-- raw HTML omitted -->
+Elixir Conf videos<!-- raw HTML omitted -->.</p>
 
     </div>
     <div class="date">
@@ -156,15 +138,6 @@ Elixir Conf videos</a>.</p>
     </div>
   </div>
 </section>
-
-
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-36431713-2', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 </body>
 </html>

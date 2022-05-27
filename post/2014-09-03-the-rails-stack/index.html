@@ -32,244 +32,184 @@
     <div class="entry">
         <p>This is a quick overview of what the Rails stack looks like
 in a <em>typical</em> production environment.</p>
-
-<p></p>
-
-<h2 id="things-that-aren-t-covered">Things that aren&rsquo;t covered</h2>
-
+<h2 id="things-that-arent-covered">Things that aren&rsquo;t covered</h2>
 <h3 id="machine-provisioning">Machine Provisioning</h3>
-
 <p>How a machine gets built is a significant variable. Provisioning largely
 depends on where you are, and what scale your system is at.  I.e.,
 whether or not you are on a cloud provider, which one, and what system
 provisioning tools you use (e.g., chef or puppet).  This article assumes
 a machine is in place, and will not cover how to bring one into
 existance.</p>
-
 <h3 id="code-deployment">Code Deployment</h3>
-
 <p>How application code gets deployed varies as much as provisioning.
 Quite often, provisioning requirements will dictate how the code is
 deployed.  While deployment is a critical subject, this article only
 talks about what the stack looks like <strong>after</strong> deployment.  I.e., we
 will describe here what the target of deployment is.</p>
-
 <h2 id="the-application-server">The Application Server</h2>
-
 <p>The application server is responsible for running one or more processes.
-A few to choose from include <a href="http://puma.io/" target="_blank">Puma</a>,
-<a href="http://unicorn.bogomips.org/" target="_blank">Unicorn</a> and
-<a href="https://www.phusionpassenger.com/" target="_blank">Phusion Passenger</a>.
+A few to choose from include <a href="http://puma.io/">Puma</a>,
+<a href="http://unicorn.bogomips.org/">Unicorn</a> and
+<a href="https://www.phusionpassenger.com/">Phusion Passenger</a>.
 In this article, I will talk specifically about Puma.</p>
-
 <h3 id="puma">Puma</h3>
-
 <p>Puma can manage more than one process, and any number of threads per
 process.  It is designed to be performant via parallelism. Using Puma to
 start multiple processes reduces the burden on the system startup
 scripts of doing the same.</p>
-
 <p>Puma is easy to configure, and the configuration can be source
 controlled.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">  </span>config<span class="w">
-</span><span class="w">  </span>├──<span class="w"> </span>puma<span class="w">
-</span><span class="w">  </span>│<span class="w">   </span>├──<span class="w"> </span>development.rb<span class="w">
-</span><span class="w">  </span>│<span class="w">   </span>└──<span class="w"> </span>production.rb</code></pre></div>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">  </span><span class="l">config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">├── puma</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">│   ├── development.rb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">│   └── production.rb</span></span></span></code></pre></div>
 <p>Since the configuration files are simply ruby code, you can choose to
 let the environment override anything.  Here&rsquo;s an example of what the
 <code>config/puma/production.rb</code> file might look like.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">workers</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_WORKERS&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">threads</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_THREADS_MIN&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_THREADS_MAX&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span></code></pre></div>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">workers</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_WORKERS&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">threads</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_THREADS_MIN&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="no">ENV</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;PUMA_THREADS_MAX&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span></span></span></code></pre></div>
 <p>More detail information about configuring Puma can be found in the
-project&rsquo;s <a href="https://github.com/puma/puma" target="_blank">README</a>.</p>
-
+project&rsquo;s <a href="https://github.com/puma/puma">README</a>.</p>
 <p>Utilizing the default directory structure for Puma configuration, the
 startup command will be simple. Just pass Puma the <code>-e &lt;environment&gt;</code>
 flag, so it knows what configuration file to load.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ bundle <span class="nb">exec</span> puma -e <span class="si">${</span><span class="nv">RACK_ENV</span><span class="k">:-</span><span class="nv">development</span><span class="si">}</span></code></pre></div>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bundle <span class="nb">exec</span> puma -e <span class="si">${</span><span class="nv">RACK_ENV</span><span class="k">:-</span><span class="nv">development</span><span class="si">}</span></span></span></code></pre></div>
 <h4 id="note-multiple-processes-and-reverse-proxies">NOTE: Multiple Processes and Reverse Proxies</h4>
-
 <p>Even when using multiple worker processes with Puma, it will open a
 single port (or socket, depending on your configuration), and pass the
 request through to forked child processes.  If there is a reverse proxy
 setup, it&rsquo;s only necessary to forward the requests to a single location
 per machine.</p>
-
 <h2 id="application-server-startup">Application Server Startup</h2>
-
 <p>Typically, the app server is not run manually.  Instead a specialized
 system level process will take care of running it, allowing for proper
 restarts on failure, or monitoring of resources like memory.</p>
-
 <p>A couple of popular options are monit and upstart.</p>
-
 <ul>
-<li><a href="http://mmonit.com/monit/" target="_blank">http://mmonit.com/monit/</a></li>
-<li><a href="http://upstart.ubuntu.com/" target="_blank">http://upstart.ubuntu.com/</a></li>
+<li><a href="http://mmonit.com/monit/">http://mmonit.com/monit/</a></li>
+<li><a href="http://upstart.ubuntu.com/">http://upstart.ubuntu.com/</a></li>
 </ul>
-
 <p>Starting application server processes has more to do with system
 provisioning than with the Rails stack.  Generally, you will want to
 ensure processes are started at the appropriate time, that resource
 usage (e.g., memory and CPU) is monitored and that any unexpected exit
 from a process is handled properly.</p>
-
 <h4 id="note-foreman">NOTE: Foreman</h4>
-
 <p>In some cases it can be useful to manage the startup of your application
 processes. For example, when there is more than one process to start
 (e.g., the web server, and a background worker). The Foreman tool
 provides a simple way to manage this.</p>
-
 <p>Foreman can be especially useful in the development environment, to keep
 multiple processes running in a single terminal window.</p>
-
 <p>Foreman can also be used to create upstart or init scripts, instead of
 using it directly to run commands.</p>
-
 <p>All-in-all, Foreman is worth looking at if your application startup is
 getting complicated.</p>
-
-<p><a href="http://blog.daviddollar.org/2011/05/06/introducing-foreman.html" target="_blank">http://blog.daviddollar.org/2011/05/06/introducing-foreman.html</a></p>
-
+<p><a href="http://blog.daviddollar.org/2011/05/06/introducing-foreman.html">http://blog.daviddollar.org/2011/05/06/introducing-foreman.html</a></p>
 <h2 id="a-reverse-proxy">A Reverse Proxy</h2>
-
 <p>In many cases it is common to run a reverse proxy on every application
 server machine (or virtual machine).  Rails applications often include a
 lot of static assets (images, css, etc.). Something like Apache or Nginx
 does a much better job of serving requests for these assets directly
 rather than running the requests through the Rails process.</p>
-
 <p>The <code>public</code> and <code>public/assets</code> directories can be handled immediately
 by a reverse proxy, and every other request can be passed to the Rails
 application server.</p>
-
 <p>While running a reverse proxy could be considered <em>best practice</em>, it
 isn&rsquo;t always necessary, depending on your situation.</p>
-
 <p>For example, if your application is configured with an <code>asset_host</code> that
 points at a CDN, then you can get away with serving static assets
 directly from Rails, since they will then be cached and served by the
 CDN&rsquo;s edge network, offloading the vast majority of the requests to
 them.</p>
-
 <h2 id="application-configuration">Application Configuration</h2>
-
 <p>Configuring Rails applications continually changes (and improves) as
 Rails grows older. Here are a few goals that are worthy of achieving,
 that should help form a perspective on how configuration should be
 accomplished.</p>
-
 <ul>
 <li>When a new developer checks out the codebase for the first time,
 they should get a running system with two commands&hellip;</li>
 </ul>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ script/bootstrap
-$ ./bin/rails server <span class="c1"># or similar, like...
-</span><span class="c1"></span>$ foreman start</code></pre></div>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ script/bootstrap
+</span></span><span class="line"><span class="cl">$ ./bin/rails server <span class="c1"># or similar, like...</span>
+</span></span><span class="line"><span class="cl">$ foreman start</span></span></code></pre></div>
 <p>While the idea behind <code>script/bootstrap</code> is outside the scope of this
 post, this goal is worth noting as it means the application should run
 with appropriate defaults set for all configuration values.</p>
-
 <ul>
 <li>Configuration should be source-controlled, ideally with your
 application source (notable exception being credentials).</li>
 </ul>
-
 <p>This means there&rsquo;s a history of configuration changes that can be
 inspected over time.</p>
-
 <ul>
 <li>Authentication tokens come from the environment, and are never
 source controlled.</li>
 </ul>
-
 <p>This includes third-party API keys, database passwords, etc.</p>
-
 <p>With these goals in mind, here is a high-level view of configuring a
 Rails application.</p>
-
 <h3 id="environment-configuration">Environment Configuration</h3>
-
 <p>In <code>config/environments/</code> there are several files that configure Rails
-itself.  The <a href="http://guides.rubyonrails.org/configuring.html" target="_blank">Rails Guides</a>
+itself.  The <a href="http://guides.rubyonrails.org/configuring.html">Rails Guides</a>
 covers these more fully.</p>
-
 <p>One important detail about these files is that they should not contain
 any credentials (e.g., a password for a mail server).  Instead,
 credentials are managed in the <code>config/secrets.yaml</code> file (see below).</p>
-
 <p>The <code>config/environments/production.rb</code> file has a few important details
 that relate to the production stack.  The <code>serve_static_assets</code> and the
 <code>x_sendfile_header</code> should be set depending on whether or not you setup
 a reverse proxy on the local machine.  The default is to <strong>not</strong> serve
 static files (i.e., you <strong>are</strong> using a reverse proxy).</p>
-
 <p>If instead you want to serve static files through Rails, make these
 changes&hellip;</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">serve_static_assets</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">config</span><span class="o">.</span><span class="n">action_dispatch</span><span class="o">.</span><span class="n">x_sendfile_header</span> <span class="o">=</span> <span class="kp">nil</span></code></pre></div>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">config</span><span class="o">.</span><span class="n">serve_static_assets</span> <span class="o">=</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">config</span><span class="o">.</span><span class="n">action_dispatch</span><span class="o">.</span><span class="n">x_sendfile_header</span> <span class="o">=</span> <span class="kp">nil</span></span></span></code></pre></div>
 <h3 id="secrets">Secrets</h3>
-
 <p>The <code>config/secrets.yml</code> file is a convenient place to store and manage
 configuration information.  It&rsquo;s an environment sensitive yaml file,
 that is evaluated with ERB, so you can bring in values set by the
 system.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">production<span class="p">:</span><span class="w">
-</span><span class="w">  </span>secret_key_base<span class="p">:</span><span class="w"> </span>&lt;%=<span class="w"> </span>ENV.fetch(<span class="s1">&#39;SECRET_KEY_BASE&#39;</span>)<span class="w"> </span>%<span class="sd">&gt;
-</span><span class="sd">  mail_server_password: &lt;%= ENV.fetch(&#39;MAIL_SERVER_PASSWORD&#39;) %&gt;</span></code></pre></div>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">production</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">secret_key_base</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= ENV.fetch(&#39;SECRET_KEY_BASE&#39;) %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mail_server_password</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= ENV.fetch(&#39;MAIL_SERVER_PASSWORD&#39;) %&gt;</span></span></span></code></pre></div>
 <p>Note that contrary to what the name of the file implies, you can put any
 configuration value you want in this file, and they aren&rsquo;t required to
 be <em>secret</em>.  For example, if you wanted information about a third party
 API to be kept in one place&hellip;</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">production<span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="c"># ...</span><span class="w">
-</span><span class="w">  </span>awesome_api_host<span class="p">:</span><span class="w"> </span>api.thirdparty.com<span class="w">
-</span><span class="w">  </span>awesome_api_username<span class="p">:</span><span class="w"> </span>&lt;%=<span class="w"> </span>ENV.fetch(<span class="s1">&#39;AWESOME_API_USERNAME&#39;</span>)<span class="w"> </span>%<span class="sd">&gt;
-</span><span class="sd">  awesome_api_password: &lt;%= ENV.fetch(&#39;AWESOME_API_PASSWORD&#39;) %&gt;</span></code></pre></div>
-
-<h3 id="database-yml"><em>database.yml</em></h3>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">production</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">awesome_api_host</span><span class="p">:</span><span class="w"> </span><span class="l">api.thirdparty.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">awesome_api_username</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= ENV.fetch(&#39;AWESOME_API_USERNAME&#39;) %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">awesome_api_password</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= ENV.fetch(&#39;AWESOME_API_PASSWORD&#39;) %&gt;</span></span></span></code></pre></div>
+<h3 id="_databaseyml_"><em>database.yml</em></h3>
 <p>The <code>config/database.yml</code> file can be treated the same as the secrets
 file.  In the latest version of Rails, a database configuration can be
 provided with a <code>URL</code>, making it a single entry.  E.g.,</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">production<span class="p">:</span><span class="w">
-</span><span class="w">  </span>reconnect<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">  </span>pool<span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="c"># expecting 8 threads per process</span><span class="w">
-</span><span class="w">  </span>url<span class="p">:</span><span class="w"> </span>&lt;%=<span class="w"> </span>ENV.fetch(<span class="s1">&#39;DATABASE_URL&#39;</span>)<span class="w"> </span>%<span class="sd">&gt;
-</span><span class="sd">  # example value:
-</span><span class="sd">  #   postgres://username:password@database.host.com:&lt;port&gt;/database_name</span><span class="w">
-</span><span class="w"></span>{%<span class="w"> </span>endhighlight<span class="w"> </span>%}<span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="c">## Logging</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span>Application<span class="w"> </span>logs<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>treated<span class="w"> </span>as<span class="w"> </span>an<span class="w"> </span>event<span class="w"> </span>stream<span class="cp">*.</span><span class="w"> </span>Your<span class="w"> </span>production<span class="w">
-</span><span class="w"></span>application<span class="w"> </span>server<span class="w"> </span>logs<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>sent<span class="w"> </span>to<span class="w"> </span>that<span class="w"> </span>event<span class="w"> </span>stream<span class="p">,</span><span class="w"> </span>along<span class="w"> </span>with<span class="w">
-</span><span class="w"></span>any<span class="w"> </span>other<span class="w"> </span>data.<span class="w"> </span>This<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>done<span class="w"> </span>through<span class="w"> </span>system<span class="w"> </span>level<span class="w"> </span>things<span class="w"> </span>like<span class="w"> </span>syslog<span class="w">
-</span><span class="w"></span>or<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>third-party<span class="w"> </span>provider<span class="w"> </span>(e.g.<span class="p">,</span><span class="w"> </span><span class="p">[</span>Papertrail<span class="p">]</span>(https<span class="p">:</span>//papertrailapp.com/)).<span class="w">
-</span><span class="w">
-</span><span class="w">  </span><span class="cp">*see</span><span class="w"> </span><span class="p">[</span>The<span class="w"> </span>Twelve-Factor<span class="w"> </span>App<span class="p">]</span>(http<span class="p">:</span>//12factor.net/)<span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="c">## Wrap-up</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span>Hopefully<span class="w"> </span>this<span class="w"> </span>post<span class="w"> </span>has<span class="w"> </span>improved<span class="w"> </span>your<span class="w"> </span>understanding<span class="w"> </span>of<span class="w"> </span>what<span class="w"> </span>a<span class="w"> </span>production<span class="w">
-</span><span class="w"></span>Rails<span class="w"> </span>stack<span class="w"> </span>might<span class="w"> </span>look<span class="w"> </span>like.<span class="w">
-</span><span class="w">
-</span><span class="w"></span>Please<span class="w"> </span>send<span class="w"> </span>me<span class="w"> </span>all<span class="w"> </span>feedback<span class="w"> </span>(see<span class="w"> </span>the<span class="w"> </span>footer<span class="w"> </span>for<span class="w"> </span>contact<span class="w"> </span>info).</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">production</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">reconnect</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pool</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="c"># expecting 8 threads per process</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;%= ENV.fetch(&#39;DATABASE_URL&#39;) %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># example value:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#   postgres://username:password@database.host.com:&lt;port&gt;/database_name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>{<span class="l">% endhighlight %}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">## Logging</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">Application logs should be treated as an event stream*. Your production</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">application server logs should be sent to that event stream, along with</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">any other data. This can be done through system level things like syslog</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">or with a third-party provider (e.g., [Papertrail](https://papertrailapp.com/)).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="cp">*see</span><span class="w"> </span><span class="p">[</span><span class="l">The Twelve-Factor App](http://12factor.net/)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">## Wrap-up</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">Hopefully this post has improved your understanding of what a production</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">Rails stack might look like.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">Please send me all feedback (see the footer for contact info).</span></span></span></code></pre></div>
     </div>
     <div class="date">
         September 3, 2014
@@ -327,15 +267,6 @@ provided with a <code>URL</code>, making it a single entry.  E.g.,</p>
     </div>
   </div>
 </section>
-
-
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-36431713-2', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
 
 </body>
 </html>
