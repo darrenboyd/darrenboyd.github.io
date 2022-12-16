@@ -9,13 +9,12 @@
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/darrenboyd&#34;&gt;Darren Boyd&lt;/a&gt; 2017</copyright>
     <lastBuildDate>Tue, 16 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://darrenboyd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The Next Opportunity</title>
+      <title>The Next Opportunity (2014 edition)</title>
       <link>https://darrenboyd.github.io/post/2014-09-16-the-next-opportunity/</link>
       <pubDate>Tue, 16 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>https://darrenboyd.github.io/post/2014-09-16-the-next-opportunity/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;EDIT&lt;/strong&gt;:
-I&amp;rsquo;m not looking. This post stays here for posterity.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;EDIT&lt;/strong&gt;: I&amp;rsquo;m not looking. This post stays here for posterity.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m looking for my next opportunity.  Ideally, the company is in San
 Francisco.  I&amp;rsquo;m open to remote work, but I&amp;rsquo;d much rather participate with a
 team directly.  Here are some thoughts on what this next role
@@ -37,7 +36,7 @@ looks like.&lt;/p&gt;</description>
       <pubDate>Thu, 11 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>https://darrenboyd.github.io/post/2014-09-11-elixir/</guid>
-      <description>With the elixir-lang 1.0.0 release approaching, I thought I&amp;rsquo;d jump in and get better acquainted with the language. First, a huge thanks to Jose and everyone involved with elixir. As much for creating a great new language, but also for giving me more motivation to read my Programming Erlangbook.
+      <description>With the elixir-lang 1.0.0 release approaching, I thought I&amp;rsquo;d jump in and get better acquainted with the language. First, a huge thanks to Jose and everyone involved with elixir. As much for creating a great new language, but also for giving me more motivation to read my Programming Erlang book.
 Here are a few first things in learning the language&amp;hellip;
 Interactive Elixir: iex Having an interactive mode is incredible. I&amp;rsquo;ve so use to irb (interactive ruby) for so long, I was thrilled to see this available for elixir.</description>
     </item>
